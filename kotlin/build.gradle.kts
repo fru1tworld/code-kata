@@ -18,6 +18,18 @@ kotlin {
     jvmToolchain(21)
 }
 
+sourceSets {
+    main {
+        kotlin.srcDirs("src")
+        resources.srcDirs("src/resources")
+    }
+}
+
 tasks.test {
     useJUnitPlatform()
+}
+
+tasks.register<JavaExec>("runDay") {
+    mainClass.set(project.findProperty("mainClass") as String? ?: "")
+    classpath = sourceSets["main"].runtimeClasspath
 }
