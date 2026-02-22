@@ -1,0 +1,15 @@
+package aoc.y2023.day24
+
+import aoc.common.input
+
+/**
+ * Day 24
+ * https://adventofcode.com/2023/day/24
+ */
+fun main() {
+    val input = input(2023, 24)
+
+    // Part 1
+
+    // Part 2
+}

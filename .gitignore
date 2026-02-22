@@ -1,0 +1,85 @@
+# ========================
+# JetBrains IDEs
+# ========================
+.idea/
+*.iml
+*.ipr
+*.iws
+.idea_modules/
+cmake-build-*/
+out/
+
+# ========================
+# TypeScript / Node.js
+# ========================
+node_modules/
+dist/
+build/
+*.js.map
+*.d.ts
+!*.config.d.ts
+*.tsbuildinfo
+.npm
+.eslintcache
+.node_repl_history
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.pnpm-store/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+.env
+.env.local
+.env.*.local
+
+# ========================
+# Rust
+# ========================
+target/
+Cargo.lock
+**/*.rs.bk
+*.pdb
+
+# ========================
+# Go
+# ========================
+bin/
+pkg/
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+go.work
+vendor/
+
+# ========================
+# Kotlin
+# ========================
+*.class
+*.jar
+*.war
+*.ear
+*.nar
+hs_err_pid*
+replay_pid*
+.gradle/
+build/
+!gradle-wrapper.jar
+.kotlin/
+
+# ========================
+# General
+# ========================
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+.vscode/
+CLAUDE.md
