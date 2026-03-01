@@ -1,0 +1,18 @@
+{
+  "name": "code-kata",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "lint": "biome lint .",
+    "format": "biome format --write .",
+    "check": "biome check --fix --unsafe .",
+    "y2015:day01": "npx tsx src/aoc/y2015/day01/index.ts"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "@types/node": "^22.0.0",
+    "tsx": "^4.0.0",
+    "typescript": "^5.0.0"
+  }
+}
