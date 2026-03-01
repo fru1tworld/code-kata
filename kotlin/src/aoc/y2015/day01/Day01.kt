@@ -27,17 +27,20 @@ fun main() {
     val input = input(2015, 1)
 
     // Part 1
-    val result = input.fold(0) { acc, c ->
-        acc + when (c) {
-            '(' -> 1
-            ')' -> -1
-            else -> 0
+    val result =
+        input.fold(0) { acc, c ->
+            acc +
+                when (c) {
+                    '(' -> 1
+                    ')' -> -1
+                    else -> 0
+                }
         }
-    }
 
-    val refactored = input
-        .map { Instruction.from(it) }
-        .sumOf { it.change }
+    val refactored =
+        input
+            .map { Instruction.from(it) }
+            .sumOf { it.change }
 
     answer(2015, 1, 1, result)
     verify(2015, 1, 1, expected = result, actual = refactored)

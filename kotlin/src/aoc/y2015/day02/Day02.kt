@@ -36,10 +36,11 @@ fun main() {
     val boxes = input.map(Box::from)
 
     // Part 1
-    val part1Result = input.sumOf { line ->
-        val (a, b, c) = line.split("x").map { it.toInt() }.sorted()
-        2 * a * b + 2 * b * c + 2 * a * c + a * b
-    }
+    val part1Result =
+        input.sumOf { line ->
+            val (a, b, c) = line.split("x").map { it.toInt() }.sorted()
+            2 * a * b + 2 * b * c + 2 * a * c + a * b
+        }
 
     val part1Refactored = boxes.sumOf { it.totalPaper }
 
@@ -47,10 +48,11 @@ fun main() {
     verify(2015, 2, 1, expected = part1Result, actual = part1Refactored)
 
     // Part 2
-    val part2Result = input.sumOf { line ->
-        val (a, b, c) = line.split("x").map { it.toInt() }.sorted()
-        2 * (a + b) + a * b * c
-    }
+    val part2Result =
+        input.sumOf { line ->
+            val (a, b, c) = line.split("x").map { it.toInt() }.sorted()
+            2 * (a + b) + a * b * c
+        }
 
     val part2Refactored = boxes.sumOf { it.totalRibbon }
 

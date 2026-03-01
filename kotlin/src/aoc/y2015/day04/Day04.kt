@@ -14,7 +14,10 @@ fun main() {
     answer(2015, 4, 2, part2)
 }
 
-fun findLowestNumber(key: String, prefix: String): Int {
+fun findLowestNumber(
+    key: String,
+    prefix: String,
+): Int {
     val md = MessageDigest.getInstance("MD5")
 
     return (0..Int.MAX_VALUE)

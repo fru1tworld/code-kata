@@ -1,13 +1,18 @@
 package aoc.y2015.day07
 
 enum class Command {
-    AND, OR, LSHIFT, RSHIFT, NOT, ASSIGN
+    AND,
+    OR,
+    LSHIFT,
+    RSHIFT,
+    NOT,
+    ASSIGN,
 }
 
 data class Instruction(
     val command: Command,
     val inputs: List<String>,
-    val destination: String
+    val destination: String,
 )
 
 object InstructionParser {
@@ -15,8 +20,8 @@ object InstructionParser {
     private val notOp = Regex("""^NOT (\w+) -> (\w+)$""")
     private val assignOp = Regex("""^(\w+) -> (\w+)$""")
 
-    fun parse(line: String): Instruction {
-        return when {
+    fun parse(line: String): Instruction =
+        when {
             binOp.matches(line) -> {
                 val match = binOp.find(line)!!
                 val (in1, op, in2, dest) = match.destructured
@@ -34,5 +39,4 @@ object InstructionParser {
             }
             else -> throw IllegalArgumentException("Unknown format: $line")
         }
-    }
 }

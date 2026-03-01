@@ -36,11 +36,12 @@ private fun solvePart2(instructions: List<Instruction>): Int {
     instructions.forEach { (action, region) ->
         for (y in region.from.y..region.to.y) {
             for (x in region.from.x..region.to.x) {
-                grid[y][x] = when (action) {
-                    Action.TurnOn -> grid[y][x] + 1
-                    Action.TurnOff -> (grid[y][x] - 1).coerceAtLeast(0)
-                    Action.Toggle -> grid[y][x] + 2
-                }
+                grid[y][x] =
+                    when (action) {
+                        Action.TurnOn -> grid[y][x] + 1
+                        Action.TurnOff -> (grid[y][x] - 1).coerceAtLeast(0)
+                        Action.Toggle -> grid[y][x] + 2
+                    }
             }
         }
     }

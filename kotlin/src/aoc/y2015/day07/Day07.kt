@@ -21,14 +21,15 @@ fun main() {
 
         val instruction = graph[wire] ?: error("Unknown wire: $wire")
 
-        val result: UShort = when (instruction.command) {
-            Command.ASSIGN -> solve(instruction.inputs[0])
-            Command.NOT -> solve(instruction.inputs[0]).inv()
-            Command.AND -> (solve(instruction.inputs[0]) and solve(instruction.inputs[1]))
-            Command.OR -> (solve(instruction.inputs[0]) or solve(instruction.inputs[1]))
-            Command.LSHIFT -> (solve(instruction.inputs[0]).toInt() shl instruction.inputs[1].toInt()).toUShort()
-            Command.RSHIFT -> (solve(instruction.inputs[0]).toInt() shr instruction.inputs[1].toInt()).toUShort()
-        }
+        val result: UShort =
+            when (instruction.command) {
+                Command.ASSIGN -> solve(instruction.inputs[0])
+                Command.NOT -> solve(instruction.inputs[0]).inv()
+                Command.AND -> (solve(instruction.inputs[0]) and solve(instruction.inputs[1]))
+                Command.OR -> (solve(instruction.inputs[0]) or solve(instruction.inputs[1]))
+                Command.LSHIFT -> (solve(instruction.inputs[0]).toInt() shl instruction.inputs[1].toInt()).toUShort()
+                Command.RSHIFT -> (solve(instruction.inputs[0]).toInt() shr instruction.inputs[1].toInt()).toUShort()
+            }
 
         cache[wire] = result
         return result
