@@ -1,0 +1,7 @@
+msrv = "1.93"
+cognitive-complexity-threshold = 15
+too-many-arguments-threshold = 7
+type-complexity-threshold = 250
+single-char-binding-names-threshold = 4
+too-large-for-stack = 200
+vec-box-size-threshold = 4096

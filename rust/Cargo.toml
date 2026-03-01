@@ -1,0 +1,10 @@
+[package]
+name = "code-kata"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+
+[[bin]]
+name = "y2015_day01"
+path = "src/bin/y2015_day01.rs"
