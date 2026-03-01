@@ -33,7 +33,6 @@ kotlin {
 sourceSets {
     main {
         kotlin.srcDirs("src")
-        resources.srcDirs("src/resources")
     }
 }
 

@@ -1,26 +1,31 @@
 package aoc.common
 
-import kotlin.io.path.readText
-import kotlin.io.path.toPath
+import java.io.File
 
 /**
  * Advent of Code Input File Reader
  */
 object InputReader {
+    private val projectRoot: File by lazy {
+        var dir = File(System.getProperty("user.dir"))
+        while (dir.parentFile != null) {
+            if (File(dir, "inputs").exists()) {
+                return@lazy dir
+            }
+            dir = dir.parentFile
+        }
+        File(System.getProperty("user.dir"))
+    }
+
     fun read(
         year: Int,
         day: Int,
     ): String {
         val dayStr = day.toString().padStart(2, '0')
-        val path = "$year/day$dayStr/input.txt"
-        val resource =
-            Thread.currentThread().contextClassLoader.getResource(path)
-                ?: throw IllegalArgumentException("Input file not found: $path")
-        return resource
-            .toURI()
-            .toPath()
-            .readText()
-            .trim()
+        val path = "inputs/$year/day$dayStr/input.txt"
+        val file = File(projectRoot, path)
+        require(file.exists()) { "Input file not found: ${file.absolutePath}" }
+        return file.readText().trim()
     }
 
     fun readLines(
