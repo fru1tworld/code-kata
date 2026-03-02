@@ -1,34 +1,23 @@
-function formatPrefix(year: number, day: number, part?: number): string {
-  const dayStr = day.toString().padStart(2, '0');
-  const partStr = part !== undefined ? ` [Part ${part}]` : '';
+interface AocContext {
+  year: number;
+  day: number;
+  part?: number;
+}
+
+function formatPrefix({ year, day, part }: AocContext): string {
+  const dayStr = String(day).padStart(2, "0");
+  const partStr = part ? ` [Part ${part}]` : "";
   return `[AOC ${year}] [Day ${dayStr}]${partStr}`;
 }
 
-export function answer<T>(year: number, day: number, part: number | undefined, result: T): void {
-  console.log(`${formatPrefix(year, day, part)} ${result}`);
+export function answer<T>(ctx: AocContext, result: T): void {
+  console.log(`${formatPrefix(ctx)} ${result}`);
 }
 
-export function answerPart<T>(year: number, day: number, part: number, result: T): void {
-  answer(year, day, part, result);
-}
-
-export function verify<T>(
-  year: number,
-  day: number,
-  part: number | undefined,
-  expected: T,
-  actual: T
-): void {
-  const status = expected === actual ? 'PASS' : `FAIL (expected: ${expected}, actual: ${actual})`;
-  console.log(`${formatPrefix(year, day, part)} ${status}`);
-}
-
-export function verifyPart<T>(
-  year: number,
-  day: number,
-  part: number,
-  expected: T,
-  actual: T
-): void {
-  verify(year, day, part, expected, actual);
+export function verify<T>(ctx: AocContext, expected: T, actual: T): void {
+  const status =
+    expected === actual
+      ? "PASS"
+      : `FAIL (expected: ${expected}, actual: ${actual})`;
+  console.log(`${formatPrefix(ctx)} ${status}`);
 }

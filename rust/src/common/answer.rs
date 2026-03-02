@@ -1,8 +1,10 @@
 use std::fmt::Display;
 
 fn format_prefix(year: u32, day: u32, part: Option<u32>) -> String {
-    let part_str = part.map(|p| format!(" [Part {}]", p)).unwrap_or_default();
-    format!("[AOC {}] [Day {:02}]{}", year, day, part_str)
+    match part {
+        Some(p) => format!("[AOC {}] [Day {:02}] [Part {}]", year, day, p),
+        None => format!("[AOC {}] [Day {:02}]", year, day),
+    }
 }
 
 pub fn answer<T: Display>(year: u32, day: u32, part: Option<u32>, result: T) {

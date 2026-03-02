@@ -1,18 +1,8 @@
 plugins {
     kotlin("jvm") version "2.3.10"
     id("org.jlleitschuh.gradle.ktlint") version "14.0.1"
-    id("io.gitlab.arturbosch.detekt") version "1.23.8"
-}
-
-detekt {
-    config.setFrom("$projectDir/detekt.yml")
-    buildUponDefaultConfig = true
-    allRules = false
-    source.setFrom("src")
-}
-
-tasks.withType<io.gitlab.arturbosch.detekt.Detekt>().configureEach {
-    jvmTarget = "21"
+    // detekt 1.x doesn't support JDK 25, detekt 2.0 is alpha with breaking config changes
+    // using ktlint only for now
 }
 
 group = "aoc"

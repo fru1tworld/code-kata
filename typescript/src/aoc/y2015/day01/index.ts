@@ -1,4 +1,4 @@
-import { answerPart, input, verifyPart } from '../../../common/index.js';
+import { answer, input, verify } from "../../../common/index.js";
 
 type Instruction = {
   char: string;
@@ -6,8 +6,8 @@ type Instruction = {
 };
 
 const instructions: Instruction[] = [
-  { char: '(', change: 1 },
-  { char: ')', change: -1 },
+  { char: "(", change: 1 },
+  { char: ")", change: -1 },
 ];
 
 function getChange(c: string): number {
@@ -19,17 +19,18 @@ function solve(data: string): number {
 }
 
 const data = input(2015, 1);
+const ctx = { year: 2015, day: 1, part: 1 };
 
 let result = 0;
 for (const c of data) {
-  if (c === '(') {
+  if (c === "(") {
     result++;
-  } else if (c === ')') {
+  } else if (c === ")") {
     result--;
   }
 }
 
 const refactored = solve(data);
 
-answerPart(2015, 1, 1, result);
-verifyPart(2015, 1, 1, result, refactored);
+answer(ctx, result);
+verify(ctx, result, refactored);
