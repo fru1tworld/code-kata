@@ -2,6 +2,10 @@
 
 다양한 언어를 학습하기 위한 문제 풀이 저장소입니다.
 
+## Tech Stack
+
+`Go` `Rust` `TypeScript` `Kotlin`
+
 ## 구조
 
 - `go/` - Go 문제 풀이
